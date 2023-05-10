@@ -1,3 +1,22 @@
+//Bonus - needs to be up top in code for the grass and sky to show on the background
+
+let horizon = window.innerHeight / 1.75
+let skyHeight = window.innerHeight-horizon
+let grassHeight = horizon
+
+tile('assets/grass.png', 0, 0, window.innerWidth/100, grassHeight/100)
+tile('assets/sky.png', 0, horizon, window.innerWidth/100, skyHeight/100)
+
+function tile(url, left, bottom, width, height){
+    for(let h = 0; h < height; h++){
+        for(let w = 0; w < width; w++){
+            newImage(url, left + w*100, bottom+h*100)
+        }
+    }
+}
+
+//assignment
+
 function newImage(url, left, bottom) {
     let object = document.createElement('img')
     object.src = url
@@ -15,6 +34,7 @@ newImage('assets/crate.png', 150, 200)
 newImage('assets/well.png', 500, 425)
 newImage('assets/pine-tree.png', 450, 200)
 
+//add query selector for dblclick
 
 function newItem(url, left, bottom){
     let object = newImage(url, left, bottom)
@@ -27,20 +47,3 @@ function newItem(url, left, bottom){
 newItem('assets/sword.png', 500, 405)
 newItem('assets/shield.png', 165, 185)
 newItem('assets/staff.png', 600, 100)
-
-tile('assets/grass.png', 0, 0)
-tile('assets/sky.png', 0, 500)
-
-for tile(let y = 0; y < window.innerHeight; y += imageHeight) {
-    for (let x = 0; x < window.innerWidth; x += imageWidth) {
-      const img = document.createElement('img');
-      img.src = imageUrl;
-      img.style.position = 'fixed';
-      img.style.left = x + 'px';
-      img.style.top = y + 'px';
-      document.body.append(img);
-    }
-  }
-
-//let grassHeight =window.innerheight-500
-//let skyHeight =window.innerHeight -100
